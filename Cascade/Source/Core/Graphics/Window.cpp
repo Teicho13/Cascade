@@ -3,10 +3,11 @@
 #include <iostream>
 
 #include "Config/AppConfig.h"
+#include "Core/Utility/Logger.h"
 
 bool Window::Create()
 {
-	std::cout << "Creating window \n";
+	Log::Info("Creating Window");
 
 	auto windowFlag = (AppConfig::Fullscreen) ? SDL_WINDOW_FULLSCREEN : (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
@@ -14,7 +15,7 @@ bool Window::Create()
 
 	if(m_Window == nullptr)
 	{
-		std::cout << "failed to create window! \n";
+		Log::Error("Failed to create window");
 		return false;
 	}
 

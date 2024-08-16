@@ -1,8 +1,7 @@
 #include "SceneManager.h"
 
-#include <iostream>
-
 #include "Core/Scenes/Scene.h"
+#include "Core/Utility/Logger.h"
 
 void SceneManager::Init()
 {
@@ -49,7 +48,7 @@ void SceneManager::ChangeScene(std::unique_ptr<Scene> newScene)
 	}
 	else
 	{
-		std::cout << "Invalid scene passed";
+		Log::Warning("Invalid scene passed");
 		return;
 	}
 }

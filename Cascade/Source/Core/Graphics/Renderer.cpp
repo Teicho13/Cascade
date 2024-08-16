@@ -1,19 +1,18 @@
 #include "Renderer.h"
 
-#include <iostream>
-
 #include "Window.h"
+#include "Core/Utility/Logger.h"
 
 bool Renderer::Create()
 {
-	std::cout << "Creating Renderer \n";
+	Log::Info("Creating Renderer");
 
 	//Create renderer for SDL and set default background color
 	m_Renderer = SDL_CreateRenderer(Window::GetWindow(), -1, 0);
 
 	if(m_Renderer == nullptr)
 	{
-		std::cout << "Failed to create Renderer !\n";
+		Log::Error("Failed to create renderer");
 		return false;
 	}
 

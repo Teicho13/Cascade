@@ -1,10 +1,10 @@
 #include "PlayScene.h"
 
-#include <iostream>
+#include "Core/Utility/Logger.h"
 
 void PlayScene::Init()
 {
-	std::cout << "Init PlayScene !\n";
+	Log::Info("Initialize Play Scene");
 }
 
 void PlayScene::Tick(float dt)
