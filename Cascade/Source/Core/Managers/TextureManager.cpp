@@ -1,16 +1,14 @@
 #include "TextureManager.h"
-#include <SDL_image.h>
 
+#include "ResourceManager.h"
 #include "Core/Graphics/Renderer.h"
 
 
 SDL_Texture* TextureManager::CreateTexture(const std::string texturePath)
 {
 	//Create texture
-	SDL_Surface* Surface = IMG_Load(texturePath.c_str());
-	SDL_Texture* TempTexture = SDL_CreateTextureFromSurface(Renderer::GetRenderer(), Surface);
-	//Free Surface since we dont need it anymore
-	SDL_FreeSurface(Surface);
+	SDL_Texture* TempTexture = ResourceManager::GetResourceManager()->GetTexture(texturePath);
+
 	return TempTexture;
 }
 
@@ -18,12 +16,13 @@ SDL_Texture* TextureManager::CreateTexture(const std::string texturePath, int& i
 {
 
 	//Create texture
-	SDL_Surface* Surface = IMG_Load(texturePath.c_str());
-	SDL_Texture* TempTexture = SDL_CreateTextureFromSurface(Renderer::GetRenderer(), Surface);
+	SDL_Surface* Surface = ResourceManager::GetResourceManager()->GetSurface(texturePath);
+	SDL_Texture* TempTexture = ResourceManager::GetResourceManager()->GetTexture(texturePath);
+
 
 	imageWidth = Surface->w;
 	imageHeight = Surface->h;
-	//Free Surface since we dont need it anymore
+	//Free Surface since we don't need it anymore
 	SDL_FreeSurface(Surface);
 	return TempTexture;
 }
