@@ -4,11 +4,14 @@
 
 #include "Graphics/Renderer.h"
 #include "Graphics/Window.h"
+#include "Managers/SceneManager.h"
+#include "Scenes/PlayScene.h"
 
 #include "Utility/KeyStates.h"
 #include "Utility/DeltaTime.h"
 
 DeltaTime dt;
+SceneManager sceneManager;
 
 void Application::Run()
 {
@@ -20,6 +23,9 @@ void Application::Run()
 		return;
 	}
 
+	//Create default scene
+	sceneManager.ChangeScene(std::make_unique<PlayScene>());
+
 	//Update / loop project
 	while(m_ShouldRun)
 	{
@@ -27,7 +33,7 @@ void Application::Run()
 		HandleEvents();
 		if(!m_ShouldRun)
 			break;
-		Update(dt.GetSeconds());
+		sceneManager.Update(dt.GetSeconds());
 		Render();
 	}
 
@@ -55,10 +61,6 @@ bool Application::Init()
 	g_KeyStates = SDL_GetKeyboardState(nullptr);
 
 	return true;
-}
-
-void Application::Update(float deltaTime)
-{
 }
 
 void Application::Shutdown()
@@ -99,7 +101,8 @@ void Application::Render()
 
 	Renderer::Clear();
 
-	//Render game objects here
+	//Render game objects
+	sceneManager.Render();
 
 	Renderer::Present();
 

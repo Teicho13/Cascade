@@ -88,12 +88,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Scenes\PlayScene.cpp" />
+    <ClCompile Include="Source\Core\Managers\SceneManager.cpp" />
     <ClCompile Include="Source\Core\Graphics\Renderer.cpp" />
     <ClCompile Include="Source\Core\Application.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Core\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Scenes\PlayScene.h" />
+    <ClInclude Include="Source\Core\Managers\SceneManager.h" />
+    <ClInclude Include="Source\Core\Scenes\Scene.h" />
     <ClInclude Include="Source\Core\Graphics\Renderer.h" />
     <ClInclude Include="Source\Config\AppConfig.h" />
     <ClInclude Include="Source\Core\Application.h" />

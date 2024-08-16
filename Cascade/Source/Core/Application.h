@@ -5,7 +5,6 @@ public:
 
 	void Run();
 	bool Init();
-	void Update(float DeltaTime);
 	void Shutdown();
 
 	void HandleEvents();
