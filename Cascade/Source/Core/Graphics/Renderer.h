@@ -13,5 +13,5 @@ public:
 	static SDL_Renderer* GetRenderer();
 };
 
-inline SDL_Renderer* m_Renderer = nullptr;
+inline SDL_Renderer* g_Renderer = nullptr;
 

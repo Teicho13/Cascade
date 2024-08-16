@@ -33,6 +33,9 @@
     <ClCompile Include="Source\Core\Scenes\PlayScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\Managers\TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Application.h">
@@ -65,8 +68,13 @@
     <ClInclude Include="Source\Core\Utility\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Core\Managers\TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Dependencies\SDL2\lib\x64\SDL2.dll" />
+    <CopyFileToFolders Include="Dependencies\SDL2-image\lib\x64\libwebp-7.dll" />
+    <CopyFileToFolders Include="Dependencies\SDL2-image\lib\x64\SDL2_image.dll" />
   </ItemGroup>
 </Project>
