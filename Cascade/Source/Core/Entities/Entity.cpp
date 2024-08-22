@@ -3,20 +3,15 @@
 #include "Core/Managers/TextureManager.h"
 
 Entity::Entity(const std::string& texturePath)
-	:m_Texture(ResourceManager::GetResourceManager()->GetTexture(texturePath))
+	:m_Sprite(std::make_unique<Sprite>("Assets/Player.png"))
 {
 }
 
 
 Entity::Entity(const std::string& texturePath, float posX, float posY)
-	:m_Texture(ResourceManager::GetResourceManager()->GetTexture(texturePath)),
+	:m_Sprite(std::make_unique<Sprite>("Assets/Player.png")),
 	m_Position(SDL_FPoint{ posX,posY })
 {
-}
-
-SDL_Texture* Entity::GetTexture() const
-{
-	return m_Texture;
 }
 
 SDL_FPoint Entity::GetPosition() const
@@ -24,13 +19,18 @@ SDL_FPoint Entity::GetPosition() const
 	return m_Position;
 }
 
-void Entity::Draw()
+SDL_Point Entity::GetSize() const
 {
-	if(m_Texture != nullptr)
+	return m_Sprite->GetSize();
+}
+
+void Entity::Draw() const
+{
+	if(m_Sprite != nullptr)
 	{
 		//Create Variable for the position of the sprite
-		const SDL_FRect tempRec(m_Position.x, m_Position.y, 39.f,60.f);
+		const SDL_FRect tempRec{ m_Position.x, m_Position.y, static_cast<float>(m_Sprite->GetSize().x), static_cast<float>(m_Sprite->GetSize().y) };
 
-		TextureManager::RenderTexture(m_Texture, &tempRec);
+		TextureManager::RenderTexture(m_Sprite->GetTexture(), &tempRec);
 	}
 }

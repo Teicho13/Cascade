@@ -20,10 +20,11 @@ void PlayScene::Tick(float dt)
 
 void PlayScene::Destroy()
 {
+	delete test;
 }
 
 void PlayScene::Render()
 {
-	TextureManager::RenderBox(50.f, 100.f, 50.f, 50.f);
+	TextureManager::RenderBox(test->GetPosition().x,test->GetPosition().y,static_cast<float>(test->GetSize().x),static_cast<float>(test->GetSize().y));
 	test->Draw();
 }

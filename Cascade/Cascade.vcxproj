@@ -99,6 +99,7 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Core\Graphics\Window.cpp" />
     <ClCompile Include="Source\Core\Managers\TextureManager.cpp" />
+    <ClCompile Include="Source\Core\Graphics\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Entities\Entity.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="Source\Core\Utility\DeltaTime.h" />
     <ClInclude Include="Source\Core\Utility\KeyStates.h" />
     <ClInclude Include="Source\Core\Managers\TextureManager.h" />
+    <ClInclude Include="Source\Core\Graphics\Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Dependencies\SDL2\lib\x64\SDL2.dll">
