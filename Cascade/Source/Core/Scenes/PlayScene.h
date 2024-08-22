@@ -1,5 +1,7 @@
 #pragma once
 #include "Scene.h"
+
+class Entity;
 class PlayScene : public Scene
 {
 public:
@@ -7,5 +9,7 @@ public:
 	void Tick(float dt) override;
 	void Destroy() override;
 	void Render() override;
+
+	Entity* m_Player = nullptr;
 };
 

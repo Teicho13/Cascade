@@ -10,9 +10,15 @@ class Entity
 public:
 	Entity(const std::string& texturePath);
 	Entity(const std::string& texturePath,float posX, float posY);
+	virtual ~Entity() = default;
 
 	SDL_FPoint GetPosition() const;
 	SDL_Point GetSize() const;
+
+	void SetPosX(float posX);
+	void SetPosY(float posY);
+
+	virtual void Update(float dt) = 0;
 
 	void Draw() const;
 private:

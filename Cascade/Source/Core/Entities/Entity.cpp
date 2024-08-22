@@ -24,6 +24,16 @@ SDL_Point Entity::GetSize() const
 	return m_Sprite->GetSize();
 }
 
+void Entity::SetPosX(float posX)
+{
+	m_Position.x = posX;
+}
+
+void Entity::SetPosY(float posY)
+{
+	m_Position.y = posY;
+}
+
 void Entity::Draw() const
 {
 	if(m_Sprite != nullptr)
