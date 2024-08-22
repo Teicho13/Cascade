@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Entities\Entity.cpp" />
     <ClCompile Include="Source\Core\Managers\ResourceManager.cpp" />
     <ClCompile Include="Source\Core\Scenes\PlayScene.cpp" />
     <ClCompile Include="Source\Core\Managers\SceneManager.cpp" />
@@ -100,6 +101,7 @@
     <ClCompile Include="Source\Core\Managers\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Entities\Entity.h" />
     <ClInclude Include="Source\Core\Managers\ResourceManager.h" />
     <ClInclude Include="Source\Core\Utility\Logger.h" />
     <ClInclude Include="Source\Core\Scenes\PlayScene.h" />

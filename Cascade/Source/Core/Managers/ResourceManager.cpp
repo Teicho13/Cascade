@@ -37,5 +37,5 @@ SDL_Texture* ResourceManager::GetTexture(const std::string& filePath)
 
 ResourceManager* ResourceManager::GetResourceManager()
 {
-	return g_ResourceManager;
+	return &g_ResourceManager;
 }

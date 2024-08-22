@@ -18,4 +18,4 @@ private:
 	std::unordered_map<std::string, SDL_Texture*> m_Textures;
 };
 
-inline ResourceManager* g_ResourceManager = nullptr;
+inline ResourceManager g_ResourceManager;
