@@ -7,7 +7,9 @@
 #include "Core/Entities/Player.h"
 
 #include "Config/AppConfig.h"
+#include "Core/Entities/Bullet.h"
 
+Bullet bullet(540.f,720.f,3,12);
 
 void PlayScene::Init()
 {
@@ -19,6 +21,7 @@ void PlayScene::Init()
 void PlayScene::Tick(float dt)
 {
 	m_Player->Update(dt);
+	bullet.Tick(dt);
 }
 
 void PlayScene::Destroy()
@@ -30,4 +33,5 @@ void PlayScene::Render()
 {
 	TextureManager::RenderBox(m_Player->GetPosition().x, m_Player->GetPosition().y,static_cast<float>(m_Player->GetSize().x),static_cast<float>(m_Player->GetSize().y));
 	m_Player->Draw();
+	bullet.Draw();
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL_pixels.h>
 #include <string>
 
 struct SDL_Renderer;
@@ -20,4 +21,6 @@ public:
 	static void RenderTexture(SDL_Texture* texture, const SDL_Rect* sourcePos, const SDL_Rect* position);
 
 	static void RenderBox(const float posX, const float posY, const float width, const float height);
+	static void RenderBoxFill(const float posX, const float posY, const float width, const float height);
+	static void RenderBoxFill(const float posX, const float posY, const float width, const float height,const SDL_Color& color);
 };

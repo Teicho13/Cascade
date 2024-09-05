@@ -59,4 +59,18 @@ void TextureManager::RenderBox(const float posX, const float posY, const float w
 	SDL_RenderDrawRectF(Renderer::GetRenderer(), &tempRect);
 }
 
+void TextureManager::RenderBoxFill(const float posX, const float posY, const float width, const float height)
+{
+	SDL_SetRenderDrawColor(Renderer::GetRenderer(), 255, 0, 0, 255);
+	SDL_FRect tempRect = SDL_FRect{ posX, posY, width, height };
+	SDL_RenderFillRectF(Renderer::GetRenderer(), &tempRect);
+}
+
+void TextureManager::RenderBoxFill(const float posX, const float posY, const float width, const float height, const SDL_Color& color)
+{
+	SDL_SetRenderDrawColor(Renderer::GetRenderer(), color.r,color.g,color.b,color.a);
+	SDL_FRect tempRect = SDL_FRect{ posX, posY, width, height };
+	SDL_RenderFillRectF(Renderer::GetRenderer(), &tempRect);
+}
+
 
