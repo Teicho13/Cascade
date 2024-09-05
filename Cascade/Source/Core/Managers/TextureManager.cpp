@@ -52,6 +52,12 @@ void TextureManager::RenderTexture(SDL_Texture* texture, const SDL_Rect* sourceP
 	SDL_RenderCopy(Renderer::GetRenderer(), texture, sourcePos, position);
 }
 
+void TextureManager::Plot(const float posX, const float posY, const SDL_Color& color)
+{
+	SDL_SetRenderDrawColor(Renderer::GetRenderer(), color.r, color.g, color.b, color.a);
+	SDL_RenderDrawPointF(Renderer::GetRenderer(),posX,posY);
+}
+
 void TextureManager::RenderBox(const float posX, const float posY, const float width, const float height)
 {
 	SDL_SetRenderDrawColor(Renderer::GetRenderer(), 255, 0, 0, 255);

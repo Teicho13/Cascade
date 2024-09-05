@@ -120,6 +120,7 @@
     <ClInclude Include="Source\Core\Utility\KeyStates.h" />
     <ClInclude Include="Source\Core\Managers\TextureManager.h" />
     <ClInclude Include="Source\Core\Graphics\Sprite.h" />
+    <ClInclude Include="Source\Game\Star.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Dependencies\SDL2\lib\x64\SDL2.dll">

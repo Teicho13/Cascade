@@ -29,7 +29,8 @@ void Renderer::Destroy()
 void Renderer::Clear()
 {
 	//Clear render screen for new frame
-	SDL_SetRenderDrawColor(g_Renderer, 27, 146, 214, 255);
+	//SDL_SetRenderDrawColor(g_Renderer, 27, 146, 214, 255);
+	SDL_SetRenderDrawColor(g_Renderer, 0, 0, 0, 255);
 	SDL_RenderClear(g_Renderer);
 }
 
