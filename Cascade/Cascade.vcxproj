@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Entities\Enemy.cpp" />
     <ClCompile Include="Source\Core\Entities\Bullet.cpp" />
     <ClCompile Include="Source\Core\Entities\Player.cpp" />
     <ClCompile Include="Source\Core\Entities\Entity.cpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="Source\Core\Graphics\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Entities\Enemy.h" />
     <ClInclude Include="Source\Core\Entities\Bullet.h" />
     <ClInclude Include="Source\Core\Entities\Player.h" />
     <ClInclude Include="Source\Core\Entities\Entity.h" />

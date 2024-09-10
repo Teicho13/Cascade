@@ -3,13 +3,13 @@
 #include "Core/Managers/TextureManager.h"
 
 Entity::Entity(const std::string& texturePath)
-	:m_Sprite(std::make_unique<Sprite>("Assets/Player.png"))
+	:m_Sprite(std::make_unique<Sprite>(texturePath))
 {
 }
 
 
 Entity::Entity(const std::string& texturePath, float posX, float posY)
-	:m_Sprite(std::make_unique<Sprite>("Assets/Player.png")),
+	:m_Sprite(std::make_unique<Sprite>(texturePath)),
 	m_Position(SDL_FPoint{ posX,posY })
 {
 }
