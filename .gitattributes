@@ -1,2 +1,2 @@
 # Apply override / Ignore language statistics to all files in the directory
-Cascade/Dependencies/* linguist-vendored
+Cascade/Dependencies/** linguist-vendored
