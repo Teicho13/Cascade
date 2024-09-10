@@ -27,6 +27,7 @@ void PlayScene::Tick(float dt)
 {
 	m_Player->Update(dt);
 	bullet.Tick(dt);
+	enemy->Update(dt);
 	for (auto& star : stars)
 	{
 		star.Tick(dt);
