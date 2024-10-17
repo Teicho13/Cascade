@@ -10,11 +10,6 @@ public:
 	void Update(float dt) override;
 
 	void Move(float dt);
-	void CheckBounds();
-
-private:
-	float m_MovementSpeed = 100.f;
-	float m_Offset = 0.f;
-	int m_Direction = 1;
+	bool CheckBounds() const;
 };
 
