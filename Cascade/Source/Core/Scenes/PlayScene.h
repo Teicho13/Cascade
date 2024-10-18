@@ -10,6 +10,8 @@ public:
 	void Destroy() override;
 	void Render() override;
 
+	void OnMouseButtonUp(bool leftMouse) override;
+
 	Entity* m_Player = nullptr;
 };
 

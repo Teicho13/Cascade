@@ -7,6 +7,8 @@ public:
 	virtual void Tick(float dt) = 0;
 	virtual void Destroy() = 0;
 
+	virtual void OnMouseButtonUp(bool leftMouse) = 0;
+	
 	virtual void Render() = 0;
 };
 

@@ -11,6 +11,7 @@ public:
 	void Shutdown();
 	void Render();
 
+	void MouseButtonUp(bool leftMouse) const;
 
 	void ChangeScene(std::unique_ptr<Scene> newScene);
 	void RemoveScene();

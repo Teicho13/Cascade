@@ -9,31 +9,31 @@
 #include "Config/AppConfig.h"
 #include "Core/Entities/Bullet.h"
 #include "Core/Entities/Enemy.h"
+#include "Core/Managers/BulletManager.h"
 #include "Core/Managers/EnemyManager.h"
 #include "Game/Star.h"
 
-Bullet bullet(540.f,720.f,3,12);
 Star stars[30];
-Enemy* enemy = nullptr;
 
 EnemyManager enemyManager;
+BulletManager bulletManager;
 
 void PlayScene::Init()
 {
 	Log::Info("Initialize Play Scene");
 
 	m_Player = new Player(std::string("Assets/Player.png"),(AppConfig::Width / 2) - 20,(AppConfig::Height - 65));
-	enemy = new Enemy(std::string("Assets/Enemy1.png"), (AppConfig::Width / 2) - 33, 200);
-
+	
 	enemyManager.SpawnEnemies();
+	bulletManager.SetPlayer(m_Player);
+	
 }
 
 void PlayScene::Tick(float dt)
 {
 	m_Player->Update(dt);
-	bullet.Tick(dt);
-	enemy->Update(dt);
 	enemyManager.Update(dt);
+	bulletManager.Update(dt);
 	for (auto& star : stars)
 	{
 		star.Tick(dt);
@@ -54,10 +54,16 @@ void PlayScene::Render()
 
 	
 	m_Player->Draw();
-	bullet.Draw();
-	enemy->Draw();
-
 	enemyManager.Draw();
+	bulletManager.Draw();
 
 	TextureManager::RenderBox(m_Player->GetPosition().x, m_Player->GetPosition().y, static_cast<float>(m_Player->GetSize().x), static_cast<float>(m_Player->GetSize().y));
+}
+
+void PlayScene::OnMouseButtonUp(bool leftMouse)
+{
+	if(leftMouse)
+	{
+		bulletManager.SpawnBullet();
+	}
 }

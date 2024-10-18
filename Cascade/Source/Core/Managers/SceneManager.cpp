@@ -32,6 +32,21 @@ void SceneManager::Render()
 	}
 }
 
+void SceneManager::MouseButtonUp(bool leftMouse) const
+{
+	if (!m_Scenes.empty())
+	{
+		if(leftMouse)
+		{
+		m_Scenes.back()->OnMouseButtonUp(true);
+		}
+		else
+		{
+			m_Scenes.back()->OnMouseButtonUp(false);
+		}
+	}
+}
+
 void SceneManager::ChangeScene(std::unique_ptr<Scene> newScene)
 {
 	if(newScene != nullptr)

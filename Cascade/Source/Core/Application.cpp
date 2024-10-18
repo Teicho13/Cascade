@@ -91,6 +91,16 @@ void Application::HandleEvents()
 				return;
 			}
 			break;
+		case SDL_MOUSEBUTTONUP:
+			if(event.button.button == SDL_BUTTON_LEFT)
+			{
+				sceneManager.MouseButtonUp(true);
+			}
+			if(event.button.button == SDL_BUTTON_RIGHT)
+			{
+				sceneManager.MouseButtonUp(false);
+			}
+			break;
 		}
 	}
 }

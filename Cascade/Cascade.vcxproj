@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Managers\BulletManager.cpp" />
     <ClCompile Include="Source\Core\Managers\EnemyManager.cpp" />
     <ClCompile Include="Source\Core\Entities\Enemy.cpp" />
     <ClCompile Include="Source\Core\Entities\Bullet.cpp" />
@@ -106,6 +107,7 @@
     <ClCompile Include="Source\Core\Graphics\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Managers\BulletManager.h" />
     <ClInclude Include="Source\Core\Managers\EnemyManager.h" />
     <ClInclude Include="Source\Core\Entities\Enemy.h" />
     <ClInclude Include="Source\Core\Entities\Bullet.h" />
