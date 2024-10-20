@@ -32,9 +32,23 @@ SDL_Color Bullet::GetColor() const
 void Bullet::Tick(float dt)
 {
 	SetPosition(m_Position.x, m_Position.y - m_Speed * dt);
+	CheckBounds();
 }
 
 void Bullet::Draw() const
 {
 	TextureManager::RenderBoxFill(m_Position.x, m_Position.y, static_cast<float>(m_Size.x), static_cast<float>(m_Size.y), m_Color);
+}
+
+void Bullet::CheckBounds()
+{
+	if(m_Position.y <= 0.f - static_cast<float>(m_Size.y))
+	{
+		m_ShouldDestroy = true;
+	}
+}
+
+bool Bullet::GetShouldDestroy() const
+{
+	return m_ShouldDestroy;
 }

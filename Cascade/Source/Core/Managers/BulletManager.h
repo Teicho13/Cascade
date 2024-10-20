@@ -1,5 +1,6 @@
 ﻿#pragma once
-#include <array>
+#include <memory>
+#include <vector>
 
 
 class Bullet;
@@ -7,14 +8,15 @@ class Entity;
 class BulletManager
 {
 public:
+    BulletManager();
+    
     void SpawnBullet();
     void SetPlayer(Entity* player);
 
-    void Update(float dt) const;
+    void Update(float dt);
     void Draw() const;
     
     private:
-    int m_ActiveBullets = 0;
-    std::array<Bullet*, 20> m_Bullets;
     Entity* m_player = nullptr;
+    std::vector<std::unique_ptr<Bullet>> m_Bullets;
 };

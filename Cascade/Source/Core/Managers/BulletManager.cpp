@@ -2,13 +2,14 @@
 #include "Core/Entities/Bullet.h"
 #include "Core/Entities/Entity.h"
 
+BulletManager::BulletManager()
+{
+    m_Bullets.reserve(30);
+}
+
 void BulletManager::SpawnBullet()
 {
-    if(m_ActiveBullets <= 19)
-    {
-        m_Bullets[m_ActiveBullets] = new Bullet(m_player->GetPosition().x,m_player->GetPosition().y,3,12);
-        m_ActiveBullets++;
-    }
+    m_Bullets.push_back(std::make_unique<Bullet>(m_player->GetPosition().x,m_player->GetPosition().y,3,12));
 }
 
 void BulletManager::SetPlayer(Entity* player)
@@ -16,24 +17,25 @@ void BulletManager::SetPlayer(Entity* player)
     m_player = player;
 }
 
-void BulletManager::Update(float dt) const
+void BulletManager::Update(float dt)
 {
-    if(m_ActiveBullets > 0)
+    for (int i = 0; i < m_Bullets.size(); ++i)
     {
-        for(int i = 0; i < m_ActiveBullets; i++)
+        if(m_Bullets[i]->GetShouldDestroy())
         {
-            m_Bullets[i]->Tick(dt);
+            m_Bullets.erase(m_Bullets.begin() + i);
+            i--;
+            continue;
         }
+
+        m_Bullets[i]->Tick(dt);
     }
 }
 
 void BulletManager::Draw() const
 {
-    if(m_ActiveBullets > 0)
+    for (const auto& bullet : m_Bullets)
     {
-        for(int i = 0; i < m_ActiveBullets; i++)
-        {
-            m_Bullets[i]->Draw();
-        }
+        bullet->Draw();
     }
 }

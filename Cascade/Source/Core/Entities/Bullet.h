@@ -11,9 +11,13 @@ public:
 	SDL_FPoint GetPosition() const;
 	SDL_Point GetSize() const;
 	SDL_Color GetColor() const;
+	bool GetShouldDestroy() const;
 
 	void Tick(float dt);
 	void Draw() const;
+
+	void CheckBounds();
+	
 
 private:
 	SDL_FPoint m_Position = SDL_FPoint{ 0.f,0.f };
@@ -21,5 +25,7 @@ private:
 	SDL_Color m_Color = SDL_Color{ 255,0,0,255 };
 
 	float m_Speed = 500.f;
+
+	bool m_ShouldDestroy = false;
 };
 
