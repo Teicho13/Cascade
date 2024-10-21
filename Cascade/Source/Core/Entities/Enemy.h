@@ -10,6 +10,6 @@ public:
 	void Update(float dt) override;
 
 	void Move(float dt);
-	bool CheckBounds() const;
+	bool CheckBounds();
 };
 

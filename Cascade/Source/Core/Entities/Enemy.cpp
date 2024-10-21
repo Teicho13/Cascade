@@ -21,10 +21,17 @@ void Enemy::Move(float dt)
 {
 }
 
-bool Enemy::CheckBounds() const
+bool Enemy::CheckBounds()
 {
-	if((GetPosition().x + static_cast<float>(GetSize().x)) >= AppConfig::Width || GetPosition().x <= 0)
+	if((GetPosition().x + static_cast<float>(GetSize().x)) >= AppConfig::Width)
 	{
+		SetPosX(static_cast<float>(AppConfig::Width - GetSize().x));
+		return false;
+	}
+
+	if(GetPosition().x <= 0)
+	{
+		SetPosX(1.f);
 		return false;
 	}
 
