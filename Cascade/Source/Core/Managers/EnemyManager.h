@@ -6,11 +6,13 @@ class EnemyManager
 {
 public:
 	void SpawnEnemies();
-	void RemoveEnemies();
+	void RemoveEnemies() const;
 
-	void Draw();
+	void Draw() const;
 
 	void Update(float dt);
+	
+	std::array<Enemy*,75>& GetEnemies();
 
 private:
 	std::array<Enemy*,75> m_EnemyContainer;

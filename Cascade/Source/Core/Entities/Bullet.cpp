@@ -48,6 +48,11 @@ void Bullet::CheckBounds()
 	}
 }
 
+void Bullet::SetShouldDestroy(bool shouldDestroy)
+{
+	m_ShouldDestroy = shouldDestroy;
+}
+
 bool Bullet::GetShouldDestroy() const
 {
 	return m_ShouldDestroy;

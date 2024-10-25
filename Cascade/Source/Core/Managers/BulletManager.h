@@ -15,6 +15,8 @@ public:
 
     void Update(float dt);
     void Draw() const;
+
+    std::vector<std::unique_ptr<Bullet>>& GetBullets();
     
     private:
     Entity* m_player = nullptr;

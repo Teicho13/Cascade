@@ -1,4 +1,6 @@
 ﻿#include "BulletManager.h"
+
+#include "TextureManager.h"
 #include "Core/Entities/Bullet.h"
 #include "Core/Entities/Entity.h"
 
@@ -9,7 +11,7 @@ BulletManager::BulletManager()
 
 void BulletManager::SpawnBullet()
 {
-    m_Bullets.push_back(std::make_unique<Bullet>(m_player->GetPosition().x,m_player->GetPosition().y,3,12));
+    m_Bullets.push_back(std::make_unique<Bullet>(m_player->GetPosition().x + (static_cast<float>(m_player->GetSize().x) / 2.f),m_player->GetPosition().y,3,12));
 }
 
 void BulletManager::SetPlayer(Entity* player)
@@ -38,4 +40,9 @@ void BulletManager::Draw() const
     {
         bullet->Draw();
     }
+}
+
+std::vector<std::unique_ptr<Bullet>>& BulletManager::GetBullets()
+{
+    return m_Bullets;
 }

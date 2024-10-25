@@ -10,6 +10,7 @@
 #include "Core/Entities/Bullet.h"
 #include "Core/Entities/Enemy.h"
 #include "Core/Managers/BulletManager.h"
+#include "Core/Managers/CollisionManager.h"
 #include "Core/Managers/EnemyManager.h"
 #include "Game/Star.h"
 
@@ -17,6 +18,7 @@ Star stars[30];
 
 EnemyManager enemyManager;
 BulletManager bulletManager;
+CollisionManager collisionManager;
 
 void PlayScene::Init()
 {
@@ -38,6 +40,7 @@ void PlayScene::Tick(float dt)
 	{
 		star.Tick(dt);
 	}
+	collisionManager.Update(dt,enemyManager.GetEnemies(),bulletManager.GetBullets());
 }
 
 void PlayScene::Destroy()

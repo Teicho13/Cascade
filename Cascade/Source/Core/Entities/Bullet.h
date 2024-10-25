@@ -17,6 +17,7 @@ public:
 	void Draw() const;
 
 	void CheckBounds();
+	void SetShouldDestroy(bool shouldDestroy);
 	
 
 private:

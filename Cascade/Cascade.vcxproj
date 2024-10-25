@@ -91,12 +91,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Managers\BulletManager.cpp" />
+    <ClCompile Include="Source\Core\Managers\CollisionManager.cpp" />
     <ClCompile Include="Source\Core\Managers\EnemyManager.cpp" />
     <ClCompile Include="Source\Core\Entities\Enemy.cpp" />
     <ClCompile Include="Source\Core\Entities\Bullet.cpp" />
     <ClCompile Include="Source\Core\Entities\Player.cpp" />
     <ClCompile Include="Source\Core\Entities\Entity.cpp" />
     <ClCompile Include="Source\Core\Managers\ResourceManager.cpp" />
+    <ClCompile Include="Source\Core\Math\Collision.cpp" />
     <ClCompile Include="Source\Core\Scenes\PlayScene.cpp" />
     <ClCompile Include="Source\Core\Managers\SceneManager.cpp" />
     <ClCompile Include="Source\Core\Graphics\Renderer.cpp" />
@@ -108,12 +110,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Managers\BulletManager.h" />
+    <ClInclude Include="Source\Core\Managers\CollisionManager.h" />
     <ClInclude Include="Source\Core\Managers\EnemyManager.h" />
     <ClInclude Include="Source\Core\Entities\Enemy.h" />
     <ClInclude Include="Source\Core\Entities\Bullet.h" />
     <ClInclude Include="Source\Core\Entities\Player.h" />
     <ClInclude Include="Source\Core\Entities\Entity.h" />
     <ClInclude Include="Source\Core\Managers\ResourceManager.h" />
+    <ClInclude Include="Source\Core\Math\Collision.h" />
     <ClInclude Include="Source\Core\Utility\Logger.h" />
     <ClInclude Include="Source\Core\Scenes\PlayScene.h" />
     <ClInclude Include="Source\Core\Managers\SceneManager.h" />

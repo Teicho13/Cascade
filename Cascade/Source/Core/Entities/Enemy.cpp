@@ -17,6 +17,11 @@ void Enemy::Update(float dt)
 {
 }
 
+void Enemy::SetIsActive(bool isActive)
+{
+	m_IsActive = isActive;
+}
+
 void Enemy::Move(float dt)
 {
 }
@@ -36,4 +41,9 @@ bool Enemy::CheckBounds()
 	}
 
 	return true;
+}
+
+bool Enemy::GetIsActive() const
+{
+	return m_IsActive;
 }

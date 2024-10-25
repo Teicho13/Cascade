@@ -9,7 +9,13 @@ public:
 
 	void Update(float dt) override;
 
+	void SetIsActive(bool isActive);
+
 	void Move(float dt);
 	bool CheckBounds();
+	bool GetIsActive() const;
+
+private:
+	bool m_IsActive = true;
 };
 

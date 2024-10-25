@@ -4,15 +4,16 @@
 
 #include "../Entities/Enemy.h"
 #include "Config/AppConfig.h"
+#include "TextureManager.h"
 
 void EnemyManager::SpawnEnemies()
 {
 	int row = 0;
 	int col = 0;
-	float offsetX = 200.f;
-	float offsetY = 200.f;
 	for (int i = 0; i < m_EnemyContainer.max_size(); ++i)
 	{
+		float offsetY = 200.f;
+		float offsetX = 200.f;
 		m_EnemyContainer[i] = new Enemy(std::string("Assets/Enemy1.png"), offsetX + (col * 40), offsetY + row * 30);
 		col++;
 		if(col % 15 == 0)
@@ -23,7 +24,7 @@ void EnemyManager::SpawnEnemies()
 	}
 }
 
-void EnemyManager::RemoveEnemies()
+void EnemyManager::RemoveEnemies() const
 {
 	for (auto enemy : m_EnemyContainer)
 	{
@@ -31,10 +32,12 @@ void EnemyManager::RemoveEnemies()
 	}
 }
 
-void EnemyManager::Draw()
+void EnemyManager::Draw() const
 {
 	for (auto enemy : m_EnemyContainer)
 	{
+		if(!enemy->GetIsActive())
+			continue;
 		enemy->Draw();
 	}
 }
@@ -45,6 +48,9 @@ void EnemyManager::Update(float dt)
 
 	for (auto enemy : m_EnemyContainer)
 	{
+		if(!enemy->GetIsActive())
+			continue;
+		
 		enemy->SetPosX(enemy->GetPosition().x + m_MoveSpeed * dt * m_Direction);
 		enemy->SetPosY(enemy->GetPosition().y + m_OffsetY);
 
@@ -58,4 +64,9 @@ void EnemyManager::Update(float dt)
 	{
 			m_Direction *= -1;
 	}
+}
+
+std::array<Enemy*, 75>& EnemyManager::GetEnemies()
+{
+	return m_EnemyContainer;
 }
