@@ -22,6 +22,7 @@ public:
 
 	static void Plot(const float posX, const float posY, const SDL_Color& color);
 	static void RenderBox(const float posX, const float posY, const float width, const float height);
+	static void RenderBox(const float posX, const float posY, const float width, const float height, const SDL_Color& color);
 	static void RenderBoxFill(const float posX, const float posY, const float width, const float height);
 	static void RenderBoxFill(const float posX, const float posY, const float width, const float height,const SDL_Color& color);
 };
