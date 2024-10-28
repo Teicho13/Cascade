@@ -12,9 +12,9 @@ void EnemyManager::SpawnEnemies()
 	int col = 0;
 	for (int i = 0; i < m_EnemyContainer.max_size(); ++i)
 	{
-		float offsetY = 200.f;
 		float offsetX = 200.f;
-		m_EnemyContainer[i] = new Enemy(std::string("Assets/Enemy1.png"), offsetX + (col * 40), offsetY + row * 30);
+		m_EnemyContainer[i] = new Enemy(std::string("Assets/Enemy1.png"), offsetX + (col * 40), m_OffsetY + row * 30);
+		m_EnemyContainer[i]->SetRow(row);
 		col++;
 		if(col % 15 == 0)
 		{
@@ -45,18 +45,19 @@ void EnemyManager::Draw() const
 void EnemyManager::Update(float dt)
 {
 	bool shouldChange = false;
-
+	
 	for (auto enemy : m_EnemyContainer)
 	{
 		if(!enemy->GetIsActive())
 			continue;
 		
 		enemy->SetPosX(enemy->GetPosition().x + m_MoveSpeed * dt * m_Direction);
-		enemy->SetPosY(enemy->GetPosition().y + m_OffsetY);
+		enemy->SetPosY(m_OffsetY + static_cast<float>(enemy->GetRow() * 30));
 
 		if(!enemy->CheckBounds())
 		{
 			shouldChange = true;
+			m_OffsetY += 5.f;
 		}
 	}
 

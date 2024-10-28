@@ -18,8 +18,8 @@ private:
 	std::array<Enemy*,75> m_EnemyContainer;
 	//15x15
 
-	float m_OffsetX = 0.f;
-	float m_OffsetY = 0.f;
+	float m_OffsetX = 200.f;
+	float m_OffsetY = 200.f;
 
 	float m_MoveSpeed = 100.f;
 

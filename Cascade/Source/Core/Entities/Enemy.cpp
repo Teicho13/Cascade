@@ -22,6 +22,11 @@ void Enemy::SetIsActive(bool isActive)
 	m_IsActive = isActive;
 }
 
+void Enemy::SetRow(int row)
+{
+	m_Row = row;
+}
+
 void Enemy::Move(float dt)
 {
 }
@@ -46,4 +51,9 @@ bool Enemy::CheckBounds()
 bool Enemy::GetIsActive() const
 {
 	return m_IsActive;
+}
+
+int Enemy::GetRow() const
+{
+	return m_Row;
 }
