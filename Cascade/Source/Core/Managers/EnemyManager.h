@@ -7,6 +7,7 @@ class EnemyManager
 public:
 	void SpawnEnemies();
 	void RemoveEnemies() const;
+	void EnemyRemoved();
 
 	void Draw() const;
 
@@ -22,7 +23,8 @@ private:
 	float m_OffsetY = 200.f;
 
 	float m_MoveSpeed = 100.f;
-
 	int m_Direction = 1;
+
+	int m_ActiveEnemies = 75;
 };
 

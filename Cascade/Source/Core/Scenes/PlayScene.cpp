@@ -28,6 +28,9 @@ void PlayScene::Init()
 	
 	enemyManager.SpawnEnemies();
 	bulletManager.SetPlayer(m_Player);
+
+	collisionManager.SetEnemyManager(&enemyManager);
+	collisionManager.SetBulletManager(&bulletManager);
 	
 }
 
@@ -40,7 +43,7 @@ void PlayScene::Tick(float dt)
 	{
 		star.Tick(dt);
 	}
-	collisionManager.Update(dt,enemyManager.GetEnemies(),bulletManager.GetBullets());
+	collisionManager.Update(dt);
 }
 
 void PlayScene::Destroy()

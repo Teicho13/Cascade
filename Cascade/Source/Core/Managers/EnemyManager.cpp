@@ -22,6 +22,8 @@ void EnemyManager::SpawnEnemies()
 			col = 0;
 		}
 	}
+
+	m_ActiveEnemies = 75;
 }
 
 void EnemyManager::RemoveEnemies() const
@@ -29,6 +31,17 @@ void EnemyManager::RemoveEnemies() const
 	for (auto enemy : m_EnemyContainer)
 	{
 		delete enemy;
+	}
+}
+
+void EnemyManager::EnemyRemoved()
+{
+	m_ActiveEnemies--;
+
+	if(m_ActiveEnemies <= 0)
+	{
+		RemoveEnemies();
+		SpawnEnemies();
 	}
 }
 

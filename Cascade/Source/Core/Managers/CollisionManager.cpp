@@ -1,14 +1,33 @@
 ﻿#include "CollisionManager.h"
+#include "EnemyManager.h"
 
 #include <iostream>
 
+#include "BulletManager.h"
 #include "Core/Math/Collision.h"
 
-void CollisionManager::Update(float dt, const std::array<Enemy*, 75>& enemies, const std::vector<std::unique_ptr<Bullet>>& bullets)
+void CollisionManager::SetEnemyManager(EnemyManager* manager)
 {
-    for (auto& bullet : bullets)
+    enemyManager = manager;
+}
+
+void CollisionManager::SetBulletManager(BulletManager* manager)
+{
+    bulletManager = manager;
+}
+
+void CollisionManager::Update(float dt) const
+{
+
+    if(enemyManager == nullptr || bulletManager == nullptr)
+        return;
+
+    for (auto& bullet : bulletManager->GetBullets())
     {
-        for (auto& enemy : enemies)
+        if(bullet->GetShouldDestroy())
+            continue;
+
+        for (auto& enemy : enemyManager->GetEnemies())
         {
             if(!enemy->GetIsActive())
                 continue;
@@ -17,6 +36,8 @@ void CollisionManager::Update(float dt, const std::array<Enemy*, 75>& enemies, c
             {
                 bullet->SetShouldDestroy(true);
                 enemy->SetIsActive(false);
+                enemyManager->EnemyRemoved();
+                return;
             }
         }
     }

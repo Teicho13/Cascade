@@ -6,8 +6,18 @@
 #include "Core/Entities/Enemy.h"
 
 
+class BulletManager;
+class EnemyManager;
+
 class CollisionManager
 {
 public:
-    void Update(float dt, const std::array<Enemy*,75> &enemies, const std::vector<std::unique_ptr<Bullet>> &bullets);
+    void SetEnemyManager(EnemyManager* manager);
+    void SetBulletManager(BulletManager* manager);
+
+    void Update(float dt) const;
+
+private:
+    EnemyManager* enemyManager = nullptr;
+    BulletManager* bulletManager = nullptr;
 };
